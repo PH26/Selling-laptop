@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/users/create', function () {
     return view('create');
 });
+Route::get('/users', function () {
+    return view('welcome1');
+});
