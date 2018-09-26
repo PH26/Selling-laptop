@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users= User::all();
+        return view('Admin.users.list',['users'=>$users]);
     }
 
     /**
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.users.add');
     }
 
     /**
@@ -35,7 +36,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->all());
+        return redirect()->route('users.list')->with('suceessful');
+//        $this->validate($request,[
+//            'name'=>'required|max:255',
+//            'password'=>'required|min:6|max:25',
+//            're-password'=>'required|same:password',
+//            'email'=>'required|email|unique:users,email',
+//            'user_type'=>'required|max:2'
+//        ],
+//        [
+//            'name.required'=>'Please input user',
+//            'name.min'=>''
+//        ]
+//        );
+
     }
 
     /**
@@ -47,6 +62,10 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
+    }
+    public function indexDashboard()
+    {
+        return view("Admin.dashboard");
     }
 
     /**
