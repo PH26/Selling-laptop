@@ -17,7 +17,6 @@
                     <th>ID</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>Address</th>
                     <th>User_type</th>
                     <th>Active</th>
@@ -29,9 +28,8 @@
                 @foreach($users as $item)
                 <tr class="odd gradeX" align="center">
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
+                    <td>{{$item->username}}</td>
                     <td>{{$item->email}}</td>
-                    <td>{{$item->password}}</td>
                     <td>{{$item->address}}</td>
                     <td>
                         @if($item->user_type == 1)
@@ -48,8 +46,14 @@
                             {{"No"}}
                         @endif
                     </td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href=""> Delete</a></td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="">Edit</a></td>
+                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
+                        <form action="{{route('users.destroy', $item->id)}}" method="POST">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('users.edit', $item->id)}}">Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>

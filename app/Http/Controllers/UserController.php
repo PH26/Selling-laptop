@@ -36,20 +36,38 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
-        return redirect()->route('users.list')->with('suceessful');
-//        $this->validate($request,[
-//            'name'=>'required|max:255',
-//            'password'=>'required|min:6|max:25',
-//            're-password'=>'required|same:password',
-//            'email'=>'required|email|unique:users,email',
-//            'user_type'=>'required|max:2'
-//        ],
-//        [
-//            'name.required'=>'Please input user',
-//            'name.min'=>''
-//        ]
-//        );
+       $this->validate($request,[
+           'username'=>'required|unique:users,username',
+           'name'=>'required|max:255',
+           'email'=>'required|email|unique:users,email',
+           'phone'=>'required|max:25',
+           'address'=>'required|max:255',
+           'password'=>'required|min:6|max:25',
+           'user_type'=>'required|max:2'
+        ],
+        [
+            'username.required'=>'Please input username',
+            'username.unique'=>'Username already exists',
+            'name.required'=>'Please input user',
+            'name.min'=>'Length min name 3',
+            'password.required'=>"Please input password",
+            'password.min'=>'Length min password 6',
+            'password.max'=>'Length max password 25',
+            'email.required'=>'Please input email',
+            'email.unique'=>'Email already exists',
+            'user_type.required'=>'Please input user_type',
+            'user_type.max'=>'The user has a value of 0 or 1'
+        ]);
+       $user=new  User;
+       $user->username= $request->username;
+       $user->name= $request->name;
+       $user->email= $request->email;
+       $user->phone = $request->phone;
+       $user->address= $request->address;
+       $user->password= bcrypt($request->password);
+       $user->user_type= $request->user_type;
+       $user->save();
+       return redirect()->route('users.list')->with('message','successful');
 
     }
 
@@ -63,11 +81,6 @@ class UserController extends Controller
     {
         //
     }
-    public function indexDashboard()
-    {
-        return view("Admin.dashboard");
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,7 +89,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('Admin.users.edit',['user'=>$user]);
     }
 
     /**
@@ -88,7 +101,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+//     dd($request->all());
+        return redirect()->route('users.list')->withSuccess('message','Update  success');
     }
 
     /**
@@ -99,6 +114,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('users.list');
     }
 }

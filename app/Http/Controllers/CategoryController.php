@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories= Category::all();
+        return view('Admin.categories.list',compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.categories.add');
     }
 
     /**
@@ -35,7 +36,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|unique:categories,name|min:3|max:255'
+        ],
+            [
+
+                'name.required'=>'Please input categories name',
+                'name.min'=>'Length min name 3',
+                'name.unique'=>'Name already exists',
+                'name.max'=>'Length nax name 255'
+
+            ]);
+        $category=new  Category();
+        $category->name= $request->name;
+        $category->save();
+        return redirect('admin/categories/list')->with('message','successful');
+
     }
 
     /**
@@ -57,7 +73,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('Admin.categories.edit',['category'=>$category]);
     }
 
     /**
@@ -69,7 +85,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+
+        $this->validate($request,[
+            'name'=>'required|unique:categories,name|min:3|max:255'
+        ],
+            [
+
+                'name.required'=>'Please input categories name',
+                'name.min'=>'Length min name 3',
+                'name.unique'=>'Name already exists',
+                'name.max'=>'Length nax name 255'
+
+            ]);
+        $category->name= $request->name;
+        $category->update($request->all());
+        return redirect()->route('categories.list')->withSuccess('message','Update  success');
     }
 
     /**
@@ -80,6 +110,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.list');
     }
 }

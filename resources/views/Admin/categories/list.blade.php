@@ -21,18 +21,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="odd gradeX" align="center">
-                    <td>1</td>
-                    <td>Dell</td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                @foreach($categories as $item)
+                    <tr class="odd gradeX" align="center">
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->name}}</td>
+                        <td class="center"><i   ></i>
+                            <form action="{{route('categories.destroy', $item->id)}}" method="POST">
+                                {!! csrf_field() !!}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('categories.edit',$item->id)}}">Edit</a></td>
                 </tr>
-                <tr class="even gradeC" align="center">
-                    <td>2</td>
-                    <td>Asus</td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

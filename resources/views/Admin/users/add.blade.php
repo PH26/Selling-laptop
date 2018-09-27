@@ -13,19 +13,31 @@
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-7" style="padding-bottom:120px">
 
+                    @if(count($errors)>0)
+                        <div class="alert alert-danger">
+                            @foreach($errors->all() as $err)
+                                {{$err}}<br>
+                            @endforeach
+                        </div>
+                    @endif
+                    @if(session('message'))
+                            <div class="alert alert-danger">
+                                {{session('message')}}
+                            </div>
+                    @endif
                     <form action="{{route("users.add")}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label>Username</label>
-                            <input class="form-control" name="username" placeholder="Please Enter Username" />
+                            <input class="form-control" name="username" placeholder="Please Enter Username" value="{{old("username")}}" />
                         </div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input class="form-control" name="name" placeholder="Please Enter Username" />
+                            <input class="form-control" name="name" placeholder="Please Enter Username" value="{{old("name")}}" />
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" name="email" placeholder="Please Enter Email" />
+                            <input type="email" class="form-control" name="email" placeholder="Please Enter Email" value="{{old("email")}}" />
                         </div>
                         <div class="form-group">
                             <label>Password</label>
@@ -33,15 +45,15 @@
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="text" class="form-control" name="phone" placeholder="Please Enter RePassword" />
+                            <input type="text" class="form-control" name="phone" placeholder="Please Enter RePassword" value="{{old("phone")}}" />
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <input type="text" class="form-control" name="address" placeholder="Please Enter RePassword" />
+                            <input type="text" class="form-control" name="address" placeholder="Please Enter RePassword" value="{{old("address")}}" />
                         </div>
                         <div class="form-group">
                             <label>User_Typte</label>
-                            <input type="number" class="form-control" name="user_type" placeholder="Please Enter User_type" />
+                            <input type="number" class="form-control" name="user_type" placeholder="Please Enter User_type" value="{{old("user_type")}}" />
                         </div>
                         <button type="submit" class="btn btn-default">User Add</button>
                         <button type="reset" class="btn btn-default">Reset</button>

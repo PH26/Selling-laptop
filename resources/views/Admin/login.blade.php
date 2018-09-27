@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <base href="{{asset('')}}">
     <title>Admin Page</title>
 
     <!-- Bootstrap Core CSS -->
@@ -33,7 +33,8 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="" method="POST">
+                    <form role="form" action="{{route('admin.login')}}" method="POST">
+                        @csrf
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
