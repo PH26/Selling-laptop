@@ -40,7 +40,15 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
         Route::get('edit/{category}', 'CategoryController@edit')->name("categories.edit");
         Route::put('edit/{category}','CategoryController@update')->name('categories.update');
         Route::delete('delete/{category}','CategoryController@destroy')->name("categories.destroy");
-
+    //---------------------------Product Management--------------------------------------
+    });
+    Route::group(['prefix'=>'products'],function (){
+        Route::get('list', 'ProductController@index')->name("products.list");
+        Route::get('add', 'ProductController@create')->name("product.create");
+        Route::post('add', 'ProductController@store')->name("products.add");
+        Route::get('edit/{product}', 'ProductController@edit')->name("products.edit");
+        Route::put('edit/{product}','ProductController@update')->name('products.update');
+        Route::delete('delete/{product}','ProductController@destroy')->name("products.destroy");
     });
 });
 

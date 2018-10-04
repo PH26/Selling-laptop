@@ -15,7 +15,6 @@
                 <thead>
                 <tr align="center">
                     <th>ID</th>
-                    <th>Username</th>
                     <th>Email</th>
                     <th>Address</th>
                     <th>User_type</th>
@@ -28,7 +27,6 @@
                 @foreach($users as $item)
                 <tr class="odd gradeX" align="center">
                     <td>{{$item->id}}</td>
-                    <td>{{$item->username}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->address}}</td>
                     <td>

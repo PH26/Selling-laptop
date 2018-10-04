@@ -17,10 +17,6 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label>Username</label>
-                            <input class="form-control" name="username" placeholder="Please Enter Username"  value="{{$user->username}}" />
-                        </div>
-                        <div class="form-group">
                             <label>Name</label>
                             <input class="form-control" name="name" placeholder="Please Enter Username" value="{{$user->name}}" />
                         </div>

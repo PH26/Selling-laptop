@@ -8,6 +8,12 @@
     <meta name="author" content="">
     <title>Admin Page</title>
     <base href="{{asset('')}}">
+    <style>
+        tr,th,td{
+            border: 1px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

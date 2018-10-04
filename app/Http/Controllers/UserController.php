@@ -37,7 +37,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
        $this->validate($request,[
-           'username'=>'required|unique:users,username',
            'name'=>'required|max:255',
            'email'=>'required|email|unique:users,email',
            'phone'=>'required|max:25',
@@ -46,8 +45,6 @@ class UserController extends Controller
            'user_type'=>'required|max:2'
         ],
         [
-            'username.required'=>'Please input username',
-            'username.unique'=>'Username already exists',
             'name.required'=>'Please input user',
             'name.min'=>'Length min name 3',
             'password.required'=>"Please input password",
@@ -59,7 +56,6 @@ class UserController extends Controller
             'user_type.max'=>'The user has a value of 0 or 1'
         ]);
        $user=new  User;
-       $user->username= $request->username;
        $user->name= $request->name;
        $user->email= $request->email;
        $user->phone = $request->phone;

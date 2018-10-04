@@ -13,9 +13,6 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="Admin/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-            </li>
-            <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -28,13 +25,13 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-product-hunt"></i> Product<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Product</a>
+                        <a href="{{route('products.list')}}">List Product</a>
                     </li>
                     <li>
-                        <a href="#">Add Product</a>
+                        <a href="{{route('products.add')}}">Add Product</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
