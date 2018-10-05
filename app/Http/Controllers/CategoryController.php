@@ -37,19 +37,22 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|unique:categories,name|min:3|max:255'
+            'name'=>'required|unique:categories,name|max:255'
         ],
             [
 
                 'name.required'=>'Please input categories name',
-                'name.min'=>'Length min name 3',
                 'name.unique'=>'Name already exists',
                 'name.max'=>'Length nax name 255'
 
             ]);
-        $category=new  Category();
-        $category->name= $request->name;
-        $category->save();
+        $category = new Category();
+        $category->name=$request->name;
+        if ($request->file('img')) {
+                $path = $request->file('img')[0]->store('images');
+                $category->img=$path;
+        } 
+        $category->save();  
         return redirect('admin/categories/list')->with('message','successful');
 
     }

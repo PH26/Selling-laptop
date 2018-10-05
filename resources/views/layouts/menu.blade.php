@@ -1,43 +1,18 @@
 <style>
-	.panel{
-		border:2px solid #00e68a;
+	.nav{
+		margin: 0 2.5em;
+		border-bottom: 2px solid red;
 	}
-	.panel-heading{
-		background: #00e68a;
-		border-radius: 0;
-		font-weight: bold;
-		color: white;
+	.nav .category{
+		border: 1px gray solid;
+		margin:0.5em;
 	}
-	.panel-body{
-		background: #f0f5f5;
-	}
-	.panel-body a{		
-		color: black;
-	}
-	.panel-body a:hover{
-		color: red;
+	.category img{
+		height: 3em;
 	}
 </style>
-<div class="col-md-2 nav">
-	<div class="panel">
-
-	  	<div class="panel-heading">CATEGORIES</div>
-	  	<div class="panel-body">
-			<ul class="nav nav-pills nav-stacked">
-				@foreach($categories as $category)
-					<li role="presentation"><a href="#">{{ $category->name }}</a></li>
-				@endforeach
-			</ul>
-	  	</div>
-
-	  	<div class="panel-heading">DANH MỤC 2</div>
-	  	<div class="panel-body">
-			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation"><a href="#">A</a></li>
-				<li role="presentation"><a href="#">B</a></li>
-				<li role="presentation"><a href="#">C</a></li>
-			</ul>
-	  	</div>
-
-	</div>
+<div class="row nav">
+	@foreach($categories as $item)
+		<div class="col-md-1 category"><a href="{{route('category',$item->id)}}"><img src="{{asset('storage/'.$item->img)}}" ></a></div>
+	@endforeach;
 </div>

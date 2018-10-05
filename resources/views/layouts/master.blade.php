@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Page</title>
+  <title>LapTop CiTy</title>
     
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,21 +29,26 @@
 <body>
         @include('layouts.header')
         @include('layouts.slide')
-        <div class="row" style="margin-left: 2.8em">
-                @include('layouts.menu')
-            <div class="col-md-9">
-                @yield('content')
-            </div>
-        </div>
+        @include('layouts.menu')
+        @yield('content')
         @include('layouts.footer')
         
 <!-- jQuery 2.2.3 -->
-<script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{ asset('plugins/fastclick/fastclick.js')}}"></script>
+<script src="admin_asset/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="admin_asset/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="admin_asset/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="admin_asset/dist/js/sb-admin-2.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 </body>
 </html>

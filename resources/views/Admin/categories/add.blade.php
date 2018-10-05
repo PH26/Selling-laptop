@@ -24,15 +24,20 @@
                         {{session('message')}}
                     </div>
                 @endif
-                <form action="{{route('categories.add')}}" method="POST">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <form action="" method="POST" role="form" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    
                     <div class="form-group">
-                        <label>Category Name</label>
-                        <input class="form-control" name="name" placeholder="Please Enter Category Name" />
+                        <label for="input-id">Name</label>
+                        <input type="text" name="name"  class="form-control" value="{{ old('name') }}"  >
                     </div>
-                    <button type="submit" class="btn btn-default">Category Add</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
-                    <form>
+                    <div class="form-group">
+                        <label for="input-id">Image</label>
+                        <input type="file" name="img[]"  class="form-control" required="required">
+                    </div>
+
+                    <input type="submit"  class="btn btn-primary" value="Add product" class="button" />
+                </form>            
             </div>
         </div>
         <!-- /.row -->

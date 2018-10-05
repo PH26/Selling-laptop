@@ -37,7 +37,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                                    Image : <input type="file" name="img[]" multiple id="inputImg" value="{{ old('images') }}" class="form-control" required="required">
+                                                    Image : <input type="file" name="img[]" multiple id="inputImg"  class="form-control" required="required">
                                                 </div>
                                                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                                                     Price : <input type="number" name="price"  class="form-control" value="{{ old('price') }}" required="required">

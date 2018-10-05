@@ -15,6 +15,7 @@
                 <thead>
                 <tr align="center">
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Delete</th>
                     <th>Edit</th>
@@ -23,7 +24,8 @@
                 <tbody>
                 @foreach($categories as $item)
                     <tr class="odd gradeX" align="center">
-                    <td>{{$item->id}}</td>
+                    <td>{{$item->id}}</td>                    
+                    <td><img src="{{asset('storage/'.$item->img)}}" ></td>
                     <td>{{$item->name}}</td>
                         <td class="center"><i   ></i>
                             <form action="{{route('categories.destroy', $item->id)}}" method="POST">

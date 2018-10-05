@@ -2,6 +2,8 @@
 
 
 Route::get('/','PageController@index')->name('index');
+Route::get('/category/{id}','PageController@category')->name('category');
+Route::get('/product/{product}','PageController@product')->name('product');
 //----------------------Admin Page-------------------------------
 Route::get('/admin/login','AdminController@getlogin')->name('admin.getLogin');
 Route::post('/admin/login','AdminController@login')->name('admin.login');

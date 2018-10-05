@@ -45,13 +45,13 @@
         }
     </style>
     <div class="row product">
-        <div class="title">ALL OF LAPTOPS</div>
+        <div class="title">{{ strtoupper($category->name) }}</div>
         @foreach($products as $product)
         <div class="col-md-2">
             <div class="thumbnail">
-                <a href="{{route('product',$product)}}"><img src="{{asset('storage/'.$product->images[0]->images_url)}}"></a>
+                <a href="#"><img src="{{asset('storage/'.$product->images[0]->images_url)}}"></a>
                 <div class="caption">
-                    <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
+                    <p><a href="#">{{ $product->name }}</a></p>
                     <p><b>{{ number_format($product->price,0, '', '.')}}₫</b></p>
                     <button class="btn btn-success">
                         <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 

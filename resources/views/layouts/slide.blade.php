@@ -1,6 +1,9 @@
 <style>
+	.slide{
+		margin-top: 0.4em;
+	}
 	.carousel-inner{
-		height: 25em;
+		height: 24em;
 		width: 94%;
 		object-fit: cover;
 	}
@@ -14,15 +17,15 @@
 	    </ol>
 	    <div class="carousel-inner">
 	         <div class="item active">
-	            <img alt="First slide" src="{{asset('images/logo.png')}}">
+	            <img alt="First slide" src="{{asset('images/slide/4.jpg')}}">
 	            
 	        </div>
 	        <div class="item">
-	            <img alt="Second slide" src="{{asset('images/logo.png')}}">
+	            <img alt="Second slide" src="{{asset('images/slide/5.jpg')}}">
 	           
 	        </div>
 	        <div class="item"> 
-	            <img alt="Three slide" src="{{asset('images/logo.png')}}">
+	            <img alt="Three slide" src="{{asset('images/slide/6.jpg')}}">
 	        </div>
 	    </div>
 	</div>

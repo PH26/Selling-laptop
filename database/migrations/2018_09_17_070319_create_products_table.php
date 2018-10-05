@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->string('pin');
             $table->string('OS')->nullable();
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
