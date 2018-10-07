@@ -7,8 +7,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Admin Page</title>
+    <link REL="SHORTCUT ICON" HREF="{{asset('images/icon.png')}}">
     <base href="{{asset('')}}">
     <style>
+        body{
+            margin: 0 auto;
+        }
         tr,th,td{
             border: 1px solid black;
         }

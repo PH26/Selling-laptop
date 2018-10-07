@@ -32,7 +32,6 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
-                <div class="panel-body">
                     <form role="form" action="{{route('admin.login')}}" method="POST">
                         @csrf
                         <fieldset>

@@ -9,7 +9,22 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                        {{ csrf_field() }}
+
+                        @if ($message = Session::get('success'))
+                          <div class="alert alert-success">
+                            <p>
+                              {{ $message }}
+                            </p>
+                          </div>
+                        @endif
+                        @if ($message = Session::get('warning'))
+                          <div class="alert alert-warning">
+                            <p>
+                              {{ $message }}
+                            </p>
+                          </div>
+                        @endif
 
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

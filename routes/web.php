@@ -8,7 +8,9 @@ Route::get('/product/{product}','PageController@product')->name('product');
 Route::get('/admin/login','AdminController@getlogin')->name('admin.getLogin');
 Route::post('/admin/login','AdminController@login')->name('admin.login');
 Route::get('/admin/logout','AdminController@logout')->name('admin.logout');
-
+//-----------------------------------------------------------------------------
+Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
+//-------------------------------------------------------------------------------
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
 //-----------------------User Management------------------------------------
     Route::get('/', function () {

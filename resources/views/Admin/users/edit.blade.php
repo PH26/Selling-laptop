@@ -29,14 +29,6 @@
                             <input type="password" class="form-control" name="password" placeholder="Please Enter Password" value="{{$user->password}}" />
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" class="form-control" name="phone" placeholder="Please Enter RePassword" value="{{$user->phone}}" />
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" class="form-control" name="address" placeholder="Please Enter Address" value="{{$user->address}}" />
-                        </div>
-                        <div class="form-group">
                             <label>User_Typte</label>
                             <input type="number" class="form-control" name="user_type" placeholder="Please Enter User_type" value="{{$user->user_type}}" />
                         </div>

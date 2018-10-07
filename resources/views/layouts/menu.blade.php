@@ -1,5 +1,6 @@
 <style>
 	.nav{
+		width: 95%;
 		margin: 0 2.5em;
 		border-bottom: 2px solid red;
 	}

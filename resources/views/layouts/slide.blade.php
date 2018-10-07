@@ -4,7 +4,7 @@
 	}
 	.carousel-inner{
 		height: 24em;
-		width: 94%;
+		width: 95%;
 		object-fit: cover;
 	}
 </style>
@@ -14,6 +14,9 @@
 	        <li data-target="#carousel-id" data-slide-to="0" class="active"></li>
 	        <li data-target="#carousel-id" data-slide-to="1" class=""></li>
 	        <li data-target="#carousel-id" data-slide-to="2" class=""></li>
+	       	<li data-target="#carousel-id" data-slide-to="3" class=""></li>
+
+
 	    </ol>
 	    <div class="carousel-inner">
 	         <div class="item active">
@@ -26,6 +29,9 @@
 	        </div>
 	        <div class="item"> 
 	            <img alt="Three slide" src="{{asset('images/slide/6.jpg')}}">
+	        </div>
+	        <div class="item"> 
+	            <img alt="Four slide" src="{{asset('images/slide/4.png')}}">
 	        </div>
 	    </div>
 	</div>

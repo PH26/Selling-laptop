@@ -2,10 +2,12 @@
 @section('content')
     <style>
         .product{
+            width: 95%;
             background: #f0f0f0;
             margin:0.5em 2.5em;
         }
         .title{
+            width: 97%;
             margin:1em;
             background: white;
             padding: 0.5em;
@@ -53,7 +55,7 @@
                 <div class="caption">
                     <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
                     <p><b>{{ number_format($product->price,0, '', '.')}}₫</b></p>
-                    <button class="btn btn-success">
+                    <button class="btn btn-warning" style="background:  red;">
                         <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
                     </button>
                 </div>

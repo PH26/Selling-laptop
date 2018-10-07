@@ -16,7 +16,6 @@
                 <tr align="center">
                     <th>ID</th>
                     <th>Email</th>
-                    <th>Address</th>
                     <th>User_type</th>
                     <th>Active</th>
                     <th>Delete</th>
@@ -28,7 +27,6 @@
                 <tr class="odd gradeX" align="center">
                     <td>{{$item->id}}</td>
                     <td>{{$item->email}}</td>
-                    <td>{{$item->address}}</td>
                     <td>
                         @if($item->user_type == 1)
                             {{"Admin"}}

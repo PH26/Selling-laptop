@@ -4,8 +4,10 @@
         .product{
             background: #f0f0f0;
             margin:0.5em 2.5em;
+            width: 95%; 
         }
         .title{
+            width: 97%;
             margin:1em;
             background: white;
             padding: 0.5em;
@@ -49,11 +51,11 @@
         @foreach($products as $product)
         <div class="col-md-2">
             <div class="thumbnail">
-                <a href="#"><img src="{{asset('storage/'.$product->images[0]->images_url)}}"></a>
+                <a href="{{route('product',$product)}}"><img src="{{asset('storage/'.$product->images[0]->images_url)}}"></a>
                 <div class="caption">
-                    <p><a href="#">{{ $product->name }}</a></p>
+                    <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
                     <p><b>{{ number_format($product->price,0, '', '.')}}₫</b></p>
-                    <button class="btn btn-success">
+                    <button class="btn btn-success" style="background: red">
                         <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
                     </button>
                 </div>

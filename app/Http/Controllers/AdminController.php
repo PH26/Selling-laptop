@@ -19,9 +19,9 @@ class AdminController extends Controller
     }
     public function login(Request $request){
         if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])) {
-            return redirect()->route('admin.index');
+            return redirect()->route('admin.index')->with('message','Login');
         }else{
-            return redirect()->route('admin.getLogin');
+            return redirect()->route('admin.getLogin')->with('message','');
         }
     }public function logout(){
         Auth::logout();

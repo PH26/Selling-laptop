@@ -39,8 +39,6 @@ class UserController extends Controller
        $this->validate($request,[
            'name'=>'required|max:255',
            'email'=>'required|email|unique:users,email',
-           'phone'=>'required|max:25',
-           'address'=>'required|max:255',
            'password'=>'required|min:6|max:25',
            'user_type'=>'required|max:2'
         ],
@@ -58,12 +56,10 @@ class UserController extends Controller
        $user=new  User;
        $user->name= $request->name;
        $user->email= $request->email;
-       $user->phone = $request->phone;
-       $user->address= $request->address;
-       $user->password= bcrypt($request->password);
+       $user->password = $request->password;
        $user->user_type= $request->user_type;
        $user->save();
-       return redirect()->route('users.list')->with('message','successful');
+       return redirect()->route('users.add')->with('message',' Add successful');
 
     }
 

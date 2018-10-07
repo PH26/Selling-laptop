@@ -51,7 +51,7 @@
             <form> 
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3 col-md-push-1">
 			@if(Auth::check())
 				<div class="col-md-1 page">
 					<a href="{{route('home')}}"><span class="fa fa-user"></span></a>

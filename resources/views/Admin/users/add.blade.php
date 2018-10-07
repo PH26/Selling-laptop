@@ -21,7 +21,7 @@
                         </div>
                     @endif
                     @if(session('message'))
-                            <div class="alert alert-danger">
+                            <div class="alert alert-success">
                                 {{session('message')}}
                             </div>
                     @endif
@@ -38,14 +38,6 @@
                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Please Enter Password" />
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" class="form-control" name="phone" placeholder="Please Enter RePassword" value="{{old("phone")}}" />
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" class="form-control" name="address" placeholder="Please Enter RePassword" value="{{old("address")}}" />
                         </div>
                         <div class="form-group">
                             <label>User_Typte</label>

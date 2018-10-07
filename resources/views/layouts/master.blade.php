@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LapTop CiTy</title>
+  <link REL="SHORTCUT ICON" HREF="{{asset('images/icon.png')}}">
+  <title>RuBy LapTop</title>
     
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,6 +25,11 @@
 
     <!-- DataTables Responsive CSS -->
     <link href="admin_asset/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <style>
+        body{
+            width: 100%;
+        }
+    </style>
 
 </head>
 <body>
