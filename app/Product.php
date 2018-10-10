@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'intro', 'price', 'cpu','ram',  'screen', 'screenCard','vga','storage','cam','connect','pin','OS','category_id'
+        'name', 'intro', 'price', 'cpu','ram',  'screen', 'screenCard','storage','connect','pin','OS','category_id','quantity','weight','size'
     ];
     public function images()
     {

@@ -48,16 +48,17 @@ class ProductController extends Controller
                 'name.unique' => 'Name already exists',
                 'price.numeric' => 'Price must be numeric'
             ]);
+        // dd($request->file('images'));
         $product = Product::create($request->all());
-        if ($request->file('img')) {
-            foreach ($request->file('img') as $image) {
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $image) {
                 $path = $image->store('images');
                 $imag = Image::create([
                     'images_url' => $path,
                     'product_id' => $product->id
                 ]);
             }
-            return redirect()->route('products.list')->with('message', 'successful');
+            return redirect()->route('products.create')->with('message', 'successful');
         }
     }
 
@@ -79,37 +80,35 @@ class ProductController extends Controller
          * @param  \App\User $user
          * @return \Illuminate\Http\Response
          */
-        public
-        function edit(User $user)
-        {
-            return view('Admin.users.edit', ['user' => $user]);
-        }
-
-        /**
-         * Update the specified resource in storage.
-         *
-         * @param  \Illuminate\Http\Request $request
-         * @param  \App\User $user
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function update(Request $request, User $user)
-        {
-            $user->update($request->all());
-//     dd($request->all());
-            return redirect()->route('users.list')->withSuccess('message', 'Update  success');
-        }
-
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param  \App\User $user
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function destroy(User $user)
-        {
-            $user->delete();
-            return redirect()->route('users.list');
-        }
+//        public function edit(User $user)
+//        {
+//            return view('Admin.users.edit', ['user' => $user]);
+//        }
+//
+//        /**
+//         * Update the specified resource in storage.
+//         *
+//         * @param  \Illuminate\Http\Request $request
+//         * @param  \App\User $user
+//         * @return \Illuminate\Http\Response
+//         */
+//        public
+//        function update(Request $request, User $user)
+//        {
+//            $user->update($request->all());
+////     dd($request->all());
+//            return redirect()->route('users.list')->withSuccess('message', 'Update  success');
+//        }
+//
+//        /**
+//         * Remove the specified resource from storage.
+//         *
+//         * @param  \App\User $user
+//         * @return \Illuminate\Http\Response
+//         */
+//        public function destroy(User $user)
+//        {
+//            $user->delete();
+//            return redirect()->route('users.list');
+//        }
     }

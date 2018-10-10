@@ -28,11 +28,11 @@
                     {{ csrf_field() }}
                     
                     <div class="form-group">
-                        <label for="input-id">Name</label>
+                        <label for="input-id">Name <span style="color: red">*</span></label>
                         <input type="text" name="name"  class="form-control" value="{{ old('name') }}"  >
                     </div>
                     <div class="form-group">
-                        <label for="input-id">Image</label>
+                        <label for="input-id">Image <span style="color: red">*</span></label>
                         <input type="file" name="img[]"  class="form-control" required="required">
                     </div>
 

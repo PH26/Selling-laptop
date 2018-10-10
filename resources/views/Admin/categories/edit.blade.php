@@ -30,7 +30,7 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label>Category Name</label>
+                        <label>Category Name<span style="color: red">*</span></label>
                         <input class="form-control" name="name" placeholder="Please Enter Category Name" value="{{$category->name}}" />
                     </div>
                     <button type="submit" class="btn btn-default">Category Edit</button>

@@ -1,15 +1,10 @@
 @extends('layouts.master')
 @section('content')
 <style>
-	.product{
-		background: white;
-	}
 	.product-name{
-		margin:0 1em;
-        background: white;
-        padding: 0.5em;
-        font-weight: bold;
-        font-size: 150%;
+		font-weight: bold;
+    margin:2em;
+    font-size: 150%;
 	}
 	.product-price{
 		color: red;
@@ -19,39 +14,56 @@
 	.properties{
 		border-top:1px solid #d1e0e0; 
 		border-bottom:1px solid #d1e0e0;
-		font-size: 105%;
+		font-size: 90%;
 		padding: 0.5em 0;
 	}
 	.super{
 		height: 30em;
-		padding: 4em 0;
 	}
 	.super .item{
 		width: 60%;
 		object-fit: cover;
 	}
 	.buy-now{
-		margin-top: 1em;
+		margin-top: 0.5em;
 		border-radius: 0.3em;
-		background: red;
+		background: #ff751a;
 		text-align: center;
 		color:white;
 	}
-	.buy-now:visited{
-	    text-decoration: none;
+	.buy-now:visited p{
 		color: white;
 	}
-	.buy-now:hover{
-		text-decoration: none;
+	.buy-now:hover p{
+		color: white;	
+	}
+	.buy-now:active p{
 		color: white;
 	}
-	.buy-now:active{
-		text-decoration: none;
-		color: white;
-	}
+	.thumbnail{
+        height: 20em;
+    }
+    .thumbnail img{
+        width: 50%;
+        object-fit: cover;
+    }
+    .thumbnail:hover{
+        border: 2px solid #00e68a;         
+    }
+    .thumbnail:hover img{
+        -webkit-transform: scale(1.04);
+        -moz-transform: scale(1.04);
+        -ms-transform: scale(1.04);
+        transform: scale(1.04);
+        -webkit-transition: transform 0.5s; 
+        transition: transform 0.5s; 
+    }
+    .col-md-4{
+    	font-weight: bold;
+    }
 </style>
     <div class="col-md-12 product">  
-    	<p class="product-name">{{$product->name}}</p>
+    	<p class="product-name">{{ strtoupper($product->name) }}</p>
     	<div class="col-md-5">
     		<div id="carousel-example-generic" class="carousel slide super" data-ride="carousel">
 		 		<!-- Wrapper for slides -->
@@ -84,8 +96,12 @@
           		<div class="col-md-8">{{$product->OS}}</div>
           	</div>
           	<div class="row properties">
-          		<div class="col-md-4">Camera:</div>
-          		<div class="col-md-8">{{$product->cam}}</div>
+          		<div class="col-md-4">ScreenCard:</div>
+          		<div class="col-md-8">{{$product->screenCard}}</div>
+          	</div>
+          	<div class="row properties">
+          		<div class="col-md-4">Weight:</div>
+          		<div class="col-md-8">{{$product->weight}}</div>
           	</div>
           	<div class="row properties">
           		<div class="col-md-4">CPU:</div>
@@ -108,8 +124,8 @@
           		<div class="col-md-8">{{$product->pin}}</div>
           	</div>
           	<div class="row properties">
-          		<div class="col-md-4">VGA:</div>
-          		<div class="col-md-8">{{$product->vga}}</div>
+          		<div class="col-md-4">Size:</div>
+          		<div class="col-md-8">{{$product->size}}</div>
           	</div>
           	<div class="row properties">
           		<div class="col-md-4">Connect:</div>
@@ -119,7 +135,33 @@
           		<p style="font-weight: bold; font-size: 120%; padding-top: 0.4em;">BUY NOW</p>
 				<p style="padding-bottom: 0.1em;">Delivery in 1 hour or at the shop</p>
           	</a>
+
     	</div>
     	<div class="col-md-1"></div>
     </div>
+		@if(count($sameproduct)>0)
+		<div class="col-md-12">
+	    	<div class="panel-heading">COMPARE WITH SIMILAR PRODUCTS</div>
+		    <div class="panel-body">
+		        @foreach($sameproduct as $item)
+	                <div class="col-md-3">
+	                    <div class="thumbnail">
+	                        <a href="{{route('product',$item)}}"><img src="{{asset('storage/'.$item->images[0]->images_url)}}"></a>
+	                        <div class="caption">
+	                            <p><a href="{{route('product',$item)}}">{{ $item->name }}</a></p>
+	                            <p><b style="color: red;">{{ number_format($item->price,0, '', '.')}}₫</b></p>
+	                            <button class="btn btn-success" style="background:  red;">
+	                                <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
+	                            </button>
+	                            <a href="{{route('compare',[$product, $item]) }}" style="; color:blue; font-weight:normal; ;">
+	                            	Detailed comparison
+	                            </a>
+	                        </div>
+	                    </div>
+	                </div>
+	            @endforeach
+		    </div>
+		</div>       			
+	@endif       
+    @include('pages.backtotop')
 @endsection

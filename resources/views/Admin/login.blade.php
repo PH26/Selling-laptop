@@ -30,6 +30,18 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
+                    @if(count($errors)>0)
+                        <div class="alert alert-warning">
+                            @foreach($errors->all() as $err)
+                                {{$err}}<br>
+                            @endforeach
+                        </div>
+                    @endif
+                    @if(session('message'))
+                            <div class="alert alert-warning">
+                                {{session('message')}}
+                            </div>
+                    @endif
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                     <form role="form" action="{{route('admin.login')}}" method="POST">

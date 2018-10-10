@@ -63,5 +63,5 @@
         </div>
     @endforeach 
     </div>
-   
+   @include('pages.backtotop')
 @endsection 

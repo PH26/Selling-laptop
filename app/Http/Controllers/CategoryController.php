@@ -102,7 +102,7 @@ class CategoryController extends Controller
             ]);
         $category->name= $request->name;
         $category->update($request->all());
-        return redirect()->route('categories.list')->withSuccess('message','Update  success');
+        return redirect()->route('categories.create')->withSuccess('message','Update  success');
     }
 
     /**
@@ -111,9 +111,15 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        $category->delete();
-        return redirect()->route('categories.list');
+       $category = Category::find($id);
+        $size = count($category->products);
+        if ($size == 0) {
+            $category->delete();
+            return redirect()->route('categories.list')->with('success', 'Delete category successfully');
+        }
+        return redirect()->route('categories.list')->with('error', 'Cannot delete!');
+        
     }
 }

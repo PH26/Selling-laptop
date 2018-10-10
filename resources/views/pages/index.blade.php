@@ -26,10 +26,7 @@
             text-decoration: none;
             color: black;
         }
-        .caption a:hover{
-            text-decoration: none;
-            color: #288ad6;
-        }
+      
         .thumbnail:hover{
             border: 1px solid red;         
         }
@@ -49,19 +46,50 @@
     <div class="row product">
         <div class="title">ALL OF LAPTOPS</div>
         @foreach($products as $product)
+        @php
+        if(!isset($product->images)){
+        dd($product);
+    }
+        @endphp
+
         <div class="col-md-2">
             <div class="thumbnail">
+                @if(count($product->images) == 0)
+                <a href="{{route('product',$product)}}"><img src="{{asset('storage/images/No_Image_Available.png')}}"></a>
+                @else
                 <a href="{{route('product',$product)}}"><img src="{{asset('storage/'.$product->images[0]->images_url)}}"></a>
+                @endif
                 <div class="caption">
                     <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
-                    <p><b>{{ number_format($product->price,0, '', '.')}}₫</b></p>
+                    <p><b>{{ number_format($product->price,0, ' ', '.')}}₫</b></p>
                     <button class="btn btn-warning" style="background:  red;">
                         <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
                     </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforeach 
+    @endforeach
     </div>
-   
+    <div class="panel">
+        <div class="panel-heading" id="heading">
+            <div class="col-md-12 title">NEW LAPTOP</div>
+        </div>
+        <div class="panel-body">
+            @foreach($newproduct as $product)
+                <div class="col-md-2">
+                    <div class="thumbnail">
+                        <a href="{{route('product',$product)}}"><img src="{{asset('storage/'.$product->images[0]->images_url)}}"></a>
+                        <div class="caption">
+                            <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
+                            <p><b>{{ number_format($product->price,0, '', '.')}}₫</b></p>
+                            <button class="btn btn-success " style="background: red">
+                                <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>      
+    @include('pages.backtotop')
 @endsection 

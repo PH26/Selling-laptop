@@ -40,6 +40,7 @@ class LoginController extends Controller
     public function credentials(Request $request)
     {
         $request['ac']=1;
-        return $request->only('email','password','ac');
+        $request['user_type']=0;
+        return $request->only('email','password','ac','user_type');
     }
 }

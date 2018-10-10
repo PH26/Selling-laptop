@@ -21,11 +21,11 @@ class AdminMiddleware
             if ($user->user_type == 1) {
                 return $next($request);
             }else{
-                return redirect()->route('admin.getLogin');
+                return redirect()->route('admin.getLogin')->with('message','email,password incorrect or you not admin');
             }
 
         }else{
-            return redirect()->route('admin.getLogin');
+            return redirect()->route('admin.getLogin')->with('message','email,password incorrect or you not admin');
         }
     }
 }

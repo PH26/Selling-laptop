@@ -1,26 +1,7 @@
     <div class="container-fluid" >
       <div class="container">
         <hr>
-      </div>
-    </div>
-    <a id="back-to-top" href="#" class="btn btn-warning btn-lg back-to-top" role="button" title="Click lên đâu trang" data-toggle="tooltip" data-placement="left"><span class="fa fa-chevron-up"></span></a>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="{!!url('public/bootstrap/js/bootstrap.min.js')!!}"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    {{-- <script src="{!!url('public/bootstrap/js/ie10-viewport-bug-workaround.js')!!}"></script> --}}
-    <!-- menu js -->
-    <script src="{!!url('public/js/menu.js')!!}"></script> 
-    <script type='text/javascript' src='{!!url('public/js/jquery.easing.1.3.js')!!}'></script> 
-    <script type='text/javascript' src='{!!url('public/js/camera.min.js')!!}'></script> 
-    <script type='text/javascript' src='{!!url('public/js/myscript.js')!!}'></script> 
-    <script type='text/javascript' src='{!!url('public/js/active-menu.js')!!}'></script> 
-    <script src="{!!url('public/js/bootstrap-image-gallery.min.js')!!}"></script>
-    <script src="{!!url('public/js/jquery.blueimp-gallery.min.js')!!}"></script>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
   <hr>
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
     <div class="row gioithieu">            

@@ -104,6 +104,6 @@ class RegisterController extends Controller
         DB::table('user_activations')->where('token',$token)->delete();
         return redirect()->to('login')->with('success',"user active successfully.");
       }
-      return redirect()->to('login')->with('Warning',"your token is invalid");
+      return redirect()->to('login')->with('warning',"your token is invalid");
     }
 }
