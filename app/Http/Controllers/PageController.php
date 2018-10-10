@@ -79,6 +79,6 @@ class PageController extends Controller
     }
     public function getcart()
     {   
-        return view ('detail.card');s
+        return view ('detail.card');
     }
 }
