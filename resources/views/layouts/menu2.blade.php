@@ -21,7 +21,7 @@
 		color: #00e68a;
 	}
 </style>
-<div class="col-md-2 nav">
+<div class="col-md-3 nav" style="float: left; ">
 	<div class="panel">
 	  	<div class="panel-heading">OPTIONS</div>
 	  	<div class="panel-body">

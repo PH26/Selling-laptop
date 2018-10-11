@@ -42,12 +42,10 @@
                             {{"No"}}
                         @endif
                     </td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
-                        <form action="{{route('users.destroy', $item->id)}}" method="POST">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit">Delete</button>
-                        </form>
+                    <td class="center">
+                        <button type="button" value="{{$item->id}}" class="btn btn-danger">
+                            <i class="fa fa-trash-o  fa-fw" style="color:black"></i>
+                        </button>                                  
                     </td>
                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('users.edit', $item->id)}}">Edit</a></td>
                 </tr>
@@ -60,5 +58,18 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var button = $('.btn-danger');
+    button.click(function(){
+        if (confirm("Do you want to delete?")) {
+            var url = '{{ route("users.destroy", ":id") }}';
+            url = url.replace(':id', $(this).val());
+            window.location.href=url;
+        }
+    });
+});
+</script>
 
 @endsection

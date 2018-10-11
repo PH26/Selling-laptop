@@ -138,7 +138,7 @@
 				</div>
 			</div>
 			<hr>
-			<div class="col-md-5 col-md-offset-2">
+			<div class="col-md-5 col-md-offset-1">
 				<a class="col-md-12 buy-now" href="#">
 		      		<p style="font-weight: bold; font-size: 115%; padding-top: 0.3em;">BUY NOW</p>
 					<p style="padding-bottom: 0.1em;">Delivery in a hour or get at the supermarket</p>
@@ -153,5 +153,6 @@
 	      	
 		</div>
 	</div>
-</div>     
+</div>  
+@include('pages.backtotop')   
 @endsection 

@@ -1,5 +1,7 @@
-    <div class="container-fluid" >
-      <div class="container">
+<style>
+</style>
+    <div class="container-fluid">
+      <div class="container" >
         <hr>
       
   <hr>
@@ -26,7 +28,6 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <p>Hỗ trợ thanh toán  <img src="{!!url('public/images/pay.png')!!}" alt=""> </p>
     <div class="gt-left pull-left">
       <p><small>Tư vẫn miễn phí (24/7)</small></p> 
       <strong>1800 xxxx</strong>
@@ -37,3 +38,4 @@
     </div>
   </div>
 </div>
+    </div>

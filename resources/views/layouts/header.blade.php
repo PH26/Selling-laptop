@@ -16,6 +16,7 @@
 	header .page{
 		font-weight: bold;
 		padding: 2em 0 1em 0;
+
 	}
 	header a{
 		text-decoration: none;
@@ -33,7 +34,8 @@
 	<div class="row fixed-bottom">
 
 		<div class="col-md-3">
-			<img src="{{asset('images/logo2.png')}}">
+			<a href=""><img src="{{asset('images/logo2.png')}}"></a>
+			
 		</div>
 
 		<div class="col-md-5">
@@ -62,8 +64,12 @@
 			@else
 				<div class="col-md-4 page"><a href="{{route('register')}}">REGISTER</a></div>
 				<div class="col-md-4 page"><a href="{{route('login')}}">LOGIN</a></div>
-			@endif		
-			<div class="col-md-4 page"><a href="{{route('index')}}"><span class="fa fa-shopping-cart fa-2x"></span></a></div>
+			@endif	
+			</a>
+				<sup style="position:relative; top: 1.2em; right: 1.5em; font-size: 15px; color: white" class="">{{Cart::content()->count()}}</sup>
+				<span class="total"></span>	
+			<div class="col-md-2 page"><a href="{{route('cart.view')}}"><span class="fa fa-shopping-cart fa-2x pagecart" ></span>
+			</div>
 		</div>
 
 	</div>

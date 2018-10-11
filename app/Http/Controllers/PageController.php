@@ -38,47 +38,16 @@ class PageController extends Controller
     }
         public function product(Product $product)
     {
-        $sameproduct = Product::where('price',$product->price)->where('id','<>',$product->id)->take(4)->get();
+         $sameproduct = Product::where('price','>',$product->price-1000000)
+                            ->where('price', '<',$product->price+1000000)
+                            ->where('id','<>',$product->id)->take(6)->get();
+        return view('pages.product', compact('product','sameproduct'));
+
         return view('pages.product', compact('product','sameproduct'));
 
     }
      public function compare(Product $product , Product $product2)
     {
         return view('pages.compare', compact('product','product2'));
-    }
-    public function addcart($id)
-    {
-        $pro = Product::where('id',$id)->first();
-        Cart::add(['id' => $pro->id, 'name' => $pro->name, 'qty' => 1, 'price' => $pro->price,'options' => ['img' => $pro->images]]);
-        return redirect()->route('getcart');
-    }
-
-    public function getupdatecart($id,$qty,$dk)
-    {
-      if ($dk=='up') {
-         $qt = $qty+1;
-         Cart::update($id, $qt);
-         return redirect()->route('getcart');
-      } elseif ($dk=='down') {
-         $qt = $qty-1;
-         Cart::update($id, $qt);
-         return redirect()->route('getcart');
-      } else {
-         return redirect()->route('getcart');
-      }
-    }
-    public function getdeletecart($id)
-    {
-     Cart::remove($id);
-     return redirect()->route('getcart');
-    }
-    public function xoa()
-    {
-        Cart::destroy();   
-        return redirect()->route('index');   
-    }
-    public function getcart()
-    {   
-        return view ('detail.card');
     }
 }

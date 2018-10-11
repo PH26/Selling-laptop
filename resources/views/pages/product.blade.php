@@ -85,8 +85,18 @@
 			</div>
     	</div>
 
-    	<div class="col-md-6">
-          	<p class="product-price">{{ number_format($product->price,0, '', '.')}}₫</p>
+    	<div class="col-md-6 ">
+    		<div class="row properties">
+    			<p class="product-price col-md-9">{{ number_format($product->price,0, '', '.')}}₫</p>
+          		<form class="" method="GET" action="{{route('cart')}}">
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class="btn btn-success col-md-2 " style="background: red">
+                	<span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
+            	</button>
+           		 </form>
+    		</div>
+          	
           	<div class="row properties">
           		<div class="col-md-4">Screen:</div>
           		<div class="col-md-8">{{$product->screen}}</div>
@@ -150,9 +160,13 @@
 	                        <div class="caption">
 	                            <p><a href="{{route('product',$item)}}">{{ $item->name }}</a></p>
 	                            <p><b style="color: red;">{{ number_format($item->price,0, '', '.')}}₫</b></p>
-	                            <button class="btn btn-success" style="background:  red;">
-	                                <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
-	                            </button>
+			                    <form method="GET" action="{{route('cart')}}">
+	                                <input type="hidden" name="product_id" value="{{$product->id}}">
+	                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+	                                <button class="btn btn-success " style="background: red">
+	                                	<span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
+		                            </button>
+		                        </form>
 	                            <a href="{{route('compare',[$product, $item]) }}" style="; color:blue; font-weight:normal; ;">
 	                            	Detailed comparison
 	                            </a>

@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link REL="SHORTCUT ICON" HREF="{{asset('images/icon.png')}}">
   <title>RuBy LapTop</title>
-    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <base href="{{asset('')}}">
@@ -28,7 +27,9 @@
     <style>
         body{
             width: 100%;
+
         }
+    
     </style>
 
 </head>
@@ -36,7 +37,7 @@
         @include('layouts.header')
         @include('layouts.slide')
         @include('layouts.menu')
-        @yield('content')
+        @yield('content')   
         @include('layouts.footer')
         
 <!-- jQuery 2.2.3 -->

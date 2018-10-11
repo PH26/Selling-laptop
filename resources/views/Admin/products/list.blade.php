@@ -41,7 +41,11 @@
                                 <td>{{$item->price}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->category->name}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
+                                <td class="center">
+                                    <button type="button" value="{{$item->id}}" class="btn btn-danger">
+                                        <i class="fa fa-trash-o  fa-fw" style="color:black"></i>
+                                    </button>                                  
+                                </td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
                             </tr>
                             @endforeach
@@ -53,5 +57,17 @@
             </div>
             <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            var button = $('.btn-danger');
+            button.click(function(){
+                if (confirm("Do you want to delete?")) {
+                    var url = '{{ route("products.destroy", ":id") }}';
+                    url = url.replace(':id', $(this).val());
+                    window.location.href=url;
+                }
+            });
+        });
+</script>
     @endsection

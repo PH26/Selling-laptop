@@ -68,47 +68,18 @@ class ProductController extends Controller
          * @param  \App\User $user
          * @return \Illuminate\Http\Response
          */
-        public
-        function show(User $user)
+        public function show(User $user)
         {
             //
         }
-
-        /**
-         * Show the form for editing the specified resource.
-         *
-         * @param  \App\User $user
-         * @return \Illuminate\Http\Response
-         */
-//        public function edit(User $user)
-//        {
-//            return view('Admin.users.edit', ['user' => $user]);
-//        }
-//
-//        /**
-//         * Update the specified resource in storage.
-//         *
-//         * @param  \Illuminate\Http\Request $request
-//         * @param  \App\User $user
-//         * @return \Illuminate\Http\Response
-//         */
-//        public
-//        function update(Request $request, User $user)
-//        {
-//            $user->update($request->all());
-////     dd($request->all());
-//            return redirect()->route('users.list')->withSuccess('message', 'Update  success');
-//        }
-//
-//        /**
-//         * Remove the specified resource from storage.
-//         *
-//         * @param  \App\User $user
-//         * @return \Illuminate\Http\Response
-//         */
-//        public function destroy(User $user)
-//        {
-//            $user->delete();
-//            return redirect()->route('users.list');
-//        }
-    }
+         public function destroy($id){
+            $product = Product::find($id);
+            $size = count($product->orders);
+             if ($size == 0) {
+            $product->delete();
+            return redirect()->route('products.list')->with('success', 'Delete  successfully');
+            }
+         return redirect()->route('products.list')->with('error', 'Cannot delete!');
+        
+             }
+        }

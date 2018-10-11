@@ -48,8 +48,7 @@
         @foreach($products as $product)
         @php
         if(!isset($product->images)){
-        dd($product);
-    }
+        }
         @endphp
 
         <div class="col-md-2">
@@ -62,15 +61,19 @@
                 <div class="caption">
                     <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
                     <p><b>{{ number_format($product->price,0, ' ', '.')}}₫</b></p>
-                    <button class="btn btn-warning" style="background:  red;">
-                        <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
-                    </button>
+                    <form method="GET" action="{{route('cart')}}">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-success " style="background: red">
+                                <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
     @endforeach
     </div>
-    <div class="panel">
+    <div class="panel" style="background: #f0f0f0">
         <div class="panel-heading" id="heading">
             <div class="col-md-12 title">NEW LAPTOP</div>
         </div>
@@ -82,9 +85,14 @@
                         <div class="caption">
                             <p><a href="{{route('product',$product)}}">{{ $product->name }}</a></p>
                             <p><b>{{ number_format($product->price,0, '', '.')}}₫</b></p>
-                            <button class="btn btn-success " style="background: red">
+                             <form method="GET" action="{{route('cart')}}">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-success " style="background: red">
                                 <span class="fa fa-shopping-cart fa-1x"> Add to cart</span> 
                             </button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
